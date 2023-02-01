@@ -1,4 +1,5 @@
 const express = require("express");
+const auth = require('../server/middlewares/auth');
 
 // recordRoutes is an instance of the express router.
 // We use it to define our routes.
@@ -6,7 +7,7 @@ const express = require("express");
 const projectRoutes = express.Router();
 
 // This will help us connect to the database
-const dbo = require("../db/conn");
+const dbo = require("../server/db/conn");
 
 // This help convert the id from string to ObjectId for the _id.
 const ObjectId = require("mongodb").ObjectId;
