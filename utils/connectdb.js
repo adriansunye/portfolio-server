@@ -6,7 +6,7 @@ const connect = mongoose.connect(url, {
 })
 connect
   .then(db => {
-    console.log("connected to db")
+    console.log("Successfully connected to MongoDB.")
   })
   .catch(err => {
     console.log(err)

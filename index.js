@@ -15,6 +15,8 @@ require("./strategies/LocalStrategy")
 require("./authenticate")
 
 const userRouter = require("./routes/userRoutes")
+const projectRouter = require("./routes/projectRoutes")
+
 
 const app = express()
 
@@ -44,6 +46,8 @@ app.use(cors(corsOptions))
 app.use(passport.initialize())
 
 app.use("/users", userRouter)
+app.use("/projects", projectRouter)
+
 
 app.get("/", function (req, res) {
   res.send({ status: "success" })
