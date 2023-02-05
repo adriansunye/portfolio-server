@@ -46,9 +46,9 @@ router.get("/:id", (req, res, next) => {
 
 router.post("/create", verifyUser, (req, res, next) => {
   const project = Project.create({
-    name: req.body.name,
-    position: req.body.position,
-    level: req.body.level,
+    projectName: req.body.projectName,
+    description: req.body.description,
+    repositoryUrl: req.body.repositoryUrl,
   });
 
   res.status(200)
@@ -62,14 +62,14 @@ router.put("/update/:id", verifyUser, (req, res, next) => {
       res.statusCode = 500
       res.send(err)
     } else {
-      let newvalues = {
+      let newValues = {
         $set: {
-          name: req.body.name,
-          position: req.body.position,
-          level: req.body.level,
+          projectName: req.body.projectName,
+          description: req.body.description,
+          repositoryUrl: req.body.repositoryUrl,
         },
       };
-      Project.updateOne(myquery, newvalues, function (err, result) {
+      Project.updateOne(myquery, newValues, function (err, result) {
         if (err) {
           res.statusCode = 500
           res.send(err)
@@ -77,7 +77,6 @@ router.put("/update/:id", verifyUser, (req, res, next) => {
           console.log("1 document updated");
           res.json(result);
         }
-
       });
     }
   });
