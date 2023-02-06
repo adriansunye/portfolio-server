@@ -62,3 +62,10 @@ const server = app.listen(process.env.PORT || 5000, function () {
 
   console.log("App started at port:", port)
 })
+
+// Making Build Folder as Public 
+app.use(express.static(path.join(__dirname, 'dist')));
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
