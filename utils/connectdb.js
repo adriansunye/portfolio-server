@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const url = 'mongodb+srv://admin:C5RR5jvoQNEWHOgK@cluster0.dqogarz.mongodb.net/portfolio'
+const url = process.env.MONGO_DB_CONNECTION_STRING
 const connect = mongoose.connect(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
