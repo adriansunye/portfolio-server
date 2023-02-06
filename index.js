@@ -3,6 +3,7 @@ const cors = require("cors")
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
 const passport = require("passport")
+const path = require('path');
 
 if (process.env.NODE_ENV !== "production") {
   // Load environment variables from .env file in non prod environments
@@ -47,6 +48,7 @@ app.use(passport.initialize())
 
 app.use("/users", userRouter)
 app.use("/projects", projectRouter)
+app.use('/public', express.static(path.join('public')));
 
 
 app.get("/", function (req, res) {

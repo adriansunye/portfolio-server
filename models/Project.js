@@ -2,6 +2,10 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const Project = new Schema({
+  githubId: {
+    type: String,
+    default: "",
+  },
   projectName: {
     type: String,
     default: "",
@@ -11,6 +15,18 @@ const Project = new Schema({
     default: "",
   },
   repositoryUrl: {
+    type: String,
+    default: "",
+  },
+  deploymentUrl: {
+    type: String,
+    default: "",
+  },
+  frameworks: {
+    type: String,
+    default: "",
+  },
+  imageUrl: {
     type: String,
     default: "",
   },
